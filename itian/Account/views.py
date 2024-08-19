@@ -3,6 +3,7 @@
 
 
 from django.shortcuts import render
+from django.http import HttpResponse
 
 ACCOUNTS = [
     {'id': 1, 'name': 'Ahmed Ali', 'email': 'ahmed@gmail.com'},
@@ -41,3 +42,7 @@ def delete_account(request, pk):
     return render(request, 'account/list.html', {'accounts': ACCOUNTS})
 
 
+from django.http import HttpResponse
+
+def create_account(request):
+    return HttpResponse("Account created")

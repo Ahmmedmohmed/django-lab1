@@ -17,7 +17,7 @@ def trainee_detail(request, pk):
     return render(request, 'trainee/detail.html', {'trainee': trainee})
 
 
-    # trainee/views.py
+ 
 
 def update_trainee(request, pk):
     trainee = next((trainee for trainee in TRAINEES if trainee['id'] == pk), None)
@@ -34,6 +34,15 @@ def delete_trainee(request, pk):
     global TRAINEES
     TRAINEES = [trainee for trainee in TRAINEES if trainee['id'] != pk]
     return render(request, 'trainee/list.html', {'trainees': TRAINEES})
+
+
+   
+
+from django.http import HttpResponse
+
+def create_trainee(request):
+    return HttpResponse("Trainee created")
+
 
    
 

@@ -6,7 +6,7 @@ TRACKS = [
     {'id': 2, 'title': 'Data Science', 'description': 'Learn about data analysis and machine learning.'},
 ]
 
-def list_tracks(request):
+def list_track(request):
     return render(request, 'track/list.html', {'tracks': TRACKS})
 
 
@@ -29,12 +29,21 @@ def update_track(request, pk):
             track['description'] = new_description
     return render(request, 'track/update.html', {'track': track})
 
-    # track/views.py
+
 
 def delete_track(request, pk):
     global TRACKS
     TRACKS = [track for track in TRACKS if track['id'] != pk]
     return render(request, 'track/list.html', {'tracks': TRACKS})
+
+
+
+
+from django.http import HttpResponse
+
+def create_track(request):
+    return HttpResponse("Track created")
+
 
 
 
